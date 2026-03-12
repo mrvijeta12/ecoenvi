@@ -1,0 +1,70 @@
+<nav
+  id="nav"
+  class="w-full bg-white fixed top-0 left-0 z-50 shadow-lg h-[70px] border-b border-green-500"
+>
+  <div class="flex justify-between items-center max-w-6xl mx-auto h-full px-6">
+    <h2 class="text-4xl text-green-700 font-bold">Ecoenvi</h2>
+
+    <ul class="md:flex space-x-6 items-center hidden h-full">
+      <li
+        class="flex items-center border-b-2 border-transparent hover:border-green-500 transition"
+      >
+        <a href="/home.html" class="nav-links">Home</a>
+      </li>
+      <li
+        class="flex items-center border-b-2 border-transparent hover:border-green-500 transition"
+      >
+        <a href="/about-us.html" class="nav-links">About Us</a>
+      </li>
+      <li
+        class="flex items-center border-b-2 border-transparent hover:border-green-500 transition"
+      >
+        <a href="/products.html" class="nav-links">Products</a>
+      </li>
+      <li class="flex items-center">
+        <button href="/contact-us.html">Contact Us</button>
+      </li>
+    </ul>
+
+    <div class="md:hidden flex items-center">
+      <span id="open-icon" class="cursor-pointer">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </span>
+    </div>
+
+    <ul
+      id="mobile-menu"
+      class="absolute top-[70px] left-0 w-[250px] h-screen bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out px-6"
+    >
+      <li>
+        <a
+          href="/home.html"
+          class="block py-2 border-b-2 border-transparent hover:border-green-500 transition nav-links"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          href="/about-us.html"
+          class="block py-2 border-b-2 border-transparent hover:border-green-500 transition nav-links"
+          >About Us</a
+        >
+      </li>
+      <li>
+        <a
+          href="/products.html"
+          class="block py-2 border-b-2 border-transparent hover:border-green-500 transition nav-links"
+          >Products</a
+        >
+      </li>
+      <li>
+        <a
+          href="/contact-us.html"
+          class="block py-2 border-b-2 border-transparent hover:border-green-500 transition"
+        >
+          Contact Us
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
