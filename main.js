@@ -13,13 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const open = document.getElementById("open-icon");
         const close = document.getElementById("close-icon");
         const links = document.querySelectorAll(".nav-links");
-        const currentPath = window.location.pathname;
-
+        // const currentPath = window.location.pathname;
+        //! for github
+        const currentPath = window.location.pathname.split("/").pop();
         links.forEach((link) => {
-          if (link.getAttribute("href") === currentPath) {
+          const linkPath = link.getAttribute("href");
+
+          if (linkPath === currentPath) {
+            console.log("Matched:", linkPath);
             link.classList.add("active");
           }
         });
+
+        // links.forEach((link) => {
+        //   if (link.getAttribute("href") === currentPath) {
+        //     console.log(link.getAttribute("href"));
+        //     console.log(currentPath);
+        //     link.classList.add("active");
+        //   }
+        // });
 
         if (open && menu) {
           open.addEventListener("click", (e) => {
