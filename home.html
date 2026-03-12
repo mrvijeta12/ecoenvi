@@ -10,26 +10,97 @@
       src="https://kit.fontawesome.com/cdf9a174a4.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Navbar  -->
     <div id="navbar-placeholder"></div>
     <main class="w-full">
-      <!-- Hero  -->
-      <div class="w-full relative overflow-hidden hero">
-        <div class="hero-image"></div>
-        <div class="absolute inset-0 bg-black/75"></div>
-        <div
-          class="hero-content max-w-4xl mx-auto px-6 relative z-10 flex flex-col pt-60 flex items-center text-center space-y-4"
-        >
-          <h1 class="font-bold">Eco-Friendly Compostable Carry Bags</h1>
-          <p>
-            Go Eco Smart with Premium Compostable Carry Bags | Multiple Sizes
-            Available
-          </p>
-          <button class="mt-5">View Carry bags</button>
+      <!-- Hero Slider -->
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div
+            class="swiper-slide bg-hero1 bg-cover bg-center h-screen flex items-center justify-center"
+          >
+            <div class="w-full relative overflow-hidden hero">
+              <div class="hero-image"></div>
+              <div class="absolute inset-0 bg-black/75"></div>
+              <div
+                class="hero-content max-w-4xl mx-auto px-6 relative z-10 flex flex-col pt-60 flex items-center text-center space-y-4"
+              >
+                <h1 class="font-bold">Eco-Friendly Compostable Carry Bags</h1>
+                <p>
+                  Go Eco Smart with Premium Compostable Carry Bags | Multiple
+                  Sizes Available
+                </p>
+                <a href="products.html">
+                  <button class="mt-5">View Products</button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div
+            class="swiper-slide bg-hero2 bg-cover bg-center h-screen flex items-center justify-center"
+          >
+            <div class="w-full relative overflow-hidden hero">
+              <div class="hero-image2"></div>
+              <div class="absolute inset-0 bg-black/75"></div>
+              <div
+                class="hero-content max-w-4xl mx-auto px-6 relative z-10 flex flex-col pt-60 flex items-center text-center space-y-4"
+              >
+                <h1 class="font-bold">
+                  Eco-Friendly Waste Collection Dustbins
+                </h1>
+                <p>
+                  Sustainable Dustbin Solutions for Homes and Businesses |
+                  Multiple Sizes Available
+                </p>
+                <a href="products.html">
+                  <button class="mt-5">View Products</button>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Optional navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+
+        <script>
+          const swiper = new Swiper(".hero-swiper", {
+            loop: true, // infinite loop
+            autoplay: {
+              delay: 2500, // 5 seconds per slide
+              disableOnInteraction: false,
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            speed: 800, // slide animation speed in ms
+            effect: "slide", // default sliding effect
+          });
+        </script>
       </div>
+
       <!-- Feature  -->
       <div class="md:max-w-6xl w-full mx-auto px-6 py-10 feature-wrapper">
         <div class="flex flex-col lg:flex-row gap-6">
@@ -38,10 +109,16 @@
               src="https://images.pexels.com/photos/7309474/pexels-photo-7309474.jpeg"
               alt="feature"
               class="h-100 rounded-lg shadow-md"
+              data-aos="zoom-in"
+              data-aos-delay="200"
             />
           </div>
           <div class="lg:w-1/2">
-            <div class="flex flex-col px-4 justify-center h-full">
+            <div
+              class="flex flex-col px-4 justify-center h-full"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
               <span
                 class="text-sm text-white font-medium tracking-wide mb-4 uppercase bg-green-500 w-fit px-2 py-1 rounded-full"
               >
@@ -52,56 +129,72 @@
                 <span class="text-green-700">Designed for the Planet.</span>
               </h1>
               <p>
-                Ecoenvi is a specialized manufacturing unit focused on producing
-                high-quality biodegradable and compostable bags made from
-                plant-based corn starch materials. We manufacture a wide range
-                of sustainable packaging and waste-management solutions,
-                including compostable carry bags, grocery and shopping bags,
-                industrial compostable garbage bags and food-grade packaging
-                solutions offering businesses a complete eco-friendly packaging
-                solution under one roof.
+                Ecoenvi specializes in manufacturing high-quality biodegradable
+                and compostable bags made from plant-based materials, along with
+                durable waste-management dustbins for homes, offices, and
+                commercial spaces. We provide sustainable packaging and waste
+                solutions under one roof.
               </p>
+
               <p>
-                Driven by sustainability rather than profit alone, our mission
-                is to replace conventional plastic with responsible alternatives
-                and support India’s transition toward a greener, cleaner future.
+                Our mission is to replace conventional plastic with responsible
+                alternatives and promote proper waste management, supporting a
+                greener and cleaner future.
               </p>
 
               <div class="flex flex-col">
                 <div class="flex mb-3 feature-list-items">
                   <div class="mr-2 mt-1">
-                    <span
-                      ><i class="fa-solid fa-circle-check feature-icon"></i
-                    ></span>
+                    <span>
+                      <i class="fa-solid fa-circle-check feature-icon"></i>
+                    </span>
                   </div>
                   <div>
                     <p>
-                      Plant-based raw materials using cornstarch & PBAT resin.
+                      Plant-based raw materials using cornstarch & PBAT resin
+                      for compostable bags.
                     </p>
                   </div>
                 </div>
+
                 <div class="flex mb-3 feature-list-items">
                   <div class="mr-2 mt-1">
-                    <span
-                      ><i class="fa-solid fa-circle-check feature-icon"></i
-                    ></span>
+                    <span>
+                      <i class="fa-solid fa-circle-check feature-icon"></i>
+                    </span>
                   </div>
                   <div>
                     <p>
-                      Custom branding available with organic water-based inks.
+                      Durable, hygienic dustbins designed for efficient waste
+                      collection and segregation.
                     </p>
                   </div>
                 </div>
+
                 <div class="flex mb-3 feature-list-items">
                   <div class="mr-2 mt-1">
-                    <span
-                      ><i class="fa-solid fa-circle-check feature-icon"></i
-                    ></span>
+                    <span>
+                      <i class="fa-solid fa-circle-check feature-icon"></i>
+                    </span>
                   </div>
                   <div>
                     <p>
-                      Pan-India supply capability with bulk manufacturing
-                      capacity.
+                      Custom branding available with organic water-based inks
+                      and product customization options.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex mb-3 feature-list-items">
+                  <div class="mr-2 mt-1">
+                    <span>
+                      <i class="fa-solid fa-circle-check feature-icon"></i>
+                    </span>
+                  </div>
+                  <div>
+                    <p>
+                      Pan-India supply capability with bulk manufacturing and
+                      distribution capacity.
                     </p>
                   </div>
                 </div>
@@ -117,32 +210,43 @@
           <!-- section title  -->
           <div
             class="md:max-w-4xl w-full mx-auto px-6 py-10 text-center flex flex-col items-center"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             <span
               class="text-sm text-white font-medium tracking-wide mb-4 uppercase bg-green-500 w-fit px-2 py-1 rounded-full"
             >
-              Our Range
+              Our Products
             </span>
+
             <h1 class="text-black mb-3 feature-heading">
               Complete Range of
-              <span class="text-green-700">Biodegradable Compostable Bags</span>
+              <span class="text-green-700"
+                >Sustainable Waste Management Solutions</span
+              >
             </h1>
+
             <p>
-              From retail carry bags and grocery bags to heavy-duty compostable
-              garbage bags, we offer sustainable alternatives designed to match
-              conventional plastic performance while being fully eco-friendly.
+              From compostable carry bags and packaging solutions to durable
+              waste-collection dustbins, our products are designed to support
+              eco-friendly businesses with reliable and sustainable
+              alternatives.
             </p>
           </div>
 
           <div class="w-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <!-- card 1  -->
-              <div class="rounded-lg shadow-md card">
+              <!-- card 1 -->
+              <div
+                class="rounded-lg shadow-md card"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <img
                   src="https://images.pexels.com/photos/15113040/pexels-photo-15113040.jpeg"
-                  alt=""
                   class="rounded-tl-lg rounded-tr-lg"
                 />
+
                 <div class="flex flex-col justify-between px-4 py-2">
                   <div>
                     <span
@@ -150,7 +254,9 @@
                     >
                       Carry Bags
                     </span>
-                    <h4 class="text-xl mb-2">Compostable Carry Bags</h4>
+                    <h4 class="text-xl mb-2">
+                      Eco-Friendly Compostable Carry Bags
+                    </h4>
                   </div>
 
                   <div class="flex flex-col">
@@ -158,27 +264,30 @@
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>100% Compostable & Biodegradable</p>
+                      <p>Certified Compostable Materials</p>
                     </div>
-
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Corn Starch Based · Strong & Reliable</p>
+                      <p>Strong, Flexible & Reliable Design</p>
                     </div>
-
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Custom Logo & Bulk Orders Available</p>
+                      <p>Custom Branding & Bulk Supply</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- card 2  -->
-              <div class="rounded-lg shadow-md card">
+
+              <!-- card 2 -->
+              <div
+                class="rounded-lg shadow-md card"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <img
                   src="https://images.pexels.com/photos/15113040/pexels-photo-15113040.jpeg"
                   class="rounded-tl-lg rounded-tr-lg"
@@ -192,7 +301,7 @@
                   </span>
 
                   <h4 class="text-xl mb-2">
-                    Heavy-Duty Grocery & Shopping Bags
+                    Heavy-Duty Compostable Shopping Bags
                   </h4>
 
                   <div class="flex flex-col">
@@ -200,31 +309,36 @@
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>100% Compostable & Biodegradable</p>
+                      <p>Eco-Conscious & Plastic-Free Solution</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Corn Starch Based · High Load Capacity</p>
+                      <p>High Load Capacity & Durable Strength</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Multiple Sizes Available</p>
+                      <p>Available in Multiple Sizes</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Custom Printing & Bulk Supply Available</p>
+                      <p>Ideal for Retail & Supermarkets</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- card 3  -->
-              <div class="rounded-lg shadow-md card">
+
+              <!-- card 3 -->
+              <div
+                class="rounded-lg shadow-md card"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <img
                   src="https://images.pexels.com/photos/15113040/pexels-photo-15113040.jpeg"
                   class="rounded-tl-lg rounded-tr-lg"
@@ -238,7 +352,7 @@
                   </span>
 
                   <h4 class="text-xl mb-2">
-                    Industrial Compostable Garbage Bags
+                    Compostable Waste Collection Bags
                   </h4>
 
                   <div class="flex flex-col">
@@ -246,32 +360,36 @@
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>100% Compostable & Biodegradable</p>
+                      <p>Leak-Resistant & Tear-Strong Material</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Corn Starch Based · Heavy-Duty Strength</p>
+                      <p>Designed for Daily & Industrial Waste</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Leak-Proof & Tear Resistant</p>
+                      <p>Fully Compostable Disposal Solution</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Bulk Orders & Custom Supply Available</p>
+                      <p>Bulk Manufacturing Available</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <!-- card 4 -->
-              <div class="rounded-lg shadow-md card">
+              <div
+                class="rounded-lg shadow-md card"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <img
                   src="https://images.pexels.com/photos/15113040/pexels-photo-15113040.jpeg"
                   class="rounded-tl-lg rounded-tr-lg"
@@ -284,15 +402,11 @@
                     Food Packaging
                   </span>
 
-                  <h4 class="text-xl mb-2">Compostable Food Packaging Bags</h4>
+                  <h4 class="text-xl mb-2">
+                    Compostable Food Packaging Solutions
+                  </h4>
 
                   <div class="flex flex-col">
-                    <div class="flex mb-1">
-                      <div class="mr-2 mt-1">
-                        <i class="fa-solid fa-circle-check card-icon"></i>
-                      </div>
-                      <p>100% Compostable & Biodegradable</p>
-                    </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
@@ -309,13 +423,24 @@
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Custom Sizes & Bulk Orders Available</p>
+                      <p>Eco-Friendly Packaging Alternative</p>
+                    </div>
+                    <div class="flex mb-1">
+                      <div class="mr-2 mt-1">
+                        <i class="fa-solid fa-circle-check card-icon"></i>
+                      </div>
+                      <p>Custom Sizes & Bulk Supply</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <!-- card 5 -->
-              <div class="rounded-lg shadow-md card">
+              <div
+                class="rounded-lg shadow-md card"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <img
                   src="https://images.pexels.com/photos/15113040/pexels-photo-15113040.jpeg"
                   class="rounded-tl-lg rounded-tr-lg"
@@ -328,32 +453,32 @@
                     Dustbins
                   </span>
 
-                  <h4 class="text-xl mb-2">Eco Waste Collection Dustbins</h4>
+                  <h4 class="text-xl mb-2">Smart Waste Collection Dustbins</h4>
 
                   <div class="flex flex-col">
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Durable & Long-Lasting Material</p>
+                      <p>Durable & Hygienic Construction</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Indoor & Outdoor Usage</p>
+                      <p>Suitable for Indoor & Outdoor Use</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Compatible with Compostable Bags</p>
+                      <p>Supports Waste Segregation Systems</p>
                     </div>
                     <div class="flex mb-1">
                       <div class="mr-2 mt-1">
                         <i class="fa-solid fa-circle-check card-icon"></i>
                       </div>
-                      <p>Multiple Sizes Available</p>
+                      <p>Multiple Capacities Available</p>
                     </div>
                   </div>
                 </div>
@@ -368,139 +493,173 @@
           <!-- section title  -->
           <div
             class="md:max-w-4xl w-full mx-auto px-6 py-10 text-center flex flex-col items-center"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             <span
               class="text-sm text-white font-medium tracking-wide mb-4 uppercase bg-green-500 w-fit px-2 py-1 rounded-full"
             >
               Why Choose Us
             </span>
+
             <h1 class="text-white mb-3 feature-heading">
               Why Businesses Trust Our
-              <span class="text-green-400"
-                >Compostable Carry & Garbage Bags</span
-              >
+              <span class="text-green-400">
+                Sustainable Bags & Waste Management Solutions
+              </span>
             </h1>
+
             <p style="color: white">
-              We manufacture biodegradable compostable bags with a focus on
-              quality, sustainability, and long-term environmental
-              responsibility — helping businesses transition toward a cleaner,
-              plastic-free future.
+              We deliver eco-conscious compostable bags and durable dustbin
+              solutions designed for performance, sustainability, and
+              responsible waste management — helping organizations move toward a
+              cleaner future.
             </p>
           </div>
 
           <div class="w-full">
             <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-              <!-- Plant-Based Raw Materials -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <!-- Sustainable Materials -->
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-seedling"></i>
                 </div>
-                <h4 class="text-xl mb-2">Plant-Based Raw Materials</h4>
+                <h4 class="text-xl mb-2">Sustainable Raw Materials</h4>
                 <p>
-                  Produced using renewable cornstarch and PBAT materials,
-                  offering a sustainable alternative to conventional plastics.
+                  Compostable bags made using renewable plant-based materials,
+                  supporting environmentally responsible production practices.
                 </p>
               </div>
 
-              <!-- Fully Biodegradable -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <!-- Eco Friendly -->
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-recycle"></i>
                 </div>
-                <h4 class="text-xl mb-2">Fully Biodegradable & Compostable</h4>
+                <h4 class="text-xl mb-2">Eco-Friendly Waste Solutions</h4>
                 <p>
-                  Naturally decomposes within 60–160 days without leaving
-                  microplastics or harmful residues.
+                  Products designed to reduce plastic waste while promoting
+                  proper waste collection and environmentally safe disposal.
                 </p>
               </div>
 
-              <!-- Safe & Non-Toxic -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <!-- Safe & Hygienic -->
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-shield-heart"></i>
                 </div>
-                <h4 class="text-xl mb-2">Safe, Eco-Friendly & Non-Toxic</h4>
+                <h4 class="text-xl mb-2">Safe & Hygienic Products</h4>
                 <p>
-                  Free from heavy metals and toxic additives, making products
-                  safe for food handling and the environment.
+                  Non-toxic materials and hygienic dustbin designs suitable for
+                  food, commercial, and daily waste handling environments.
                 </p>
               </div>
 
               <!-- Strong Performance -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-dumbbell"></i>
                 </div>
-                <h4 class="text-xl mb-2">
-                  Strong Performance, Competitive Pricing
-                </h4>
+                <h4 class="text-xl mb-2">Durable & Reliable Performance</h4>
                 <p>
-                  Engineered for durability and high load capacity while
-                  remaining cost-effective for commercial use.
+                  Strong compostable bags and robust dustbins engineered for
+                  everyday commercial and industrial usage.
                 </p>
               </div>
 
-              <!-- Custom Branding -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <!-- Custom Solutions -->
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-paintbrush"></i>
                 </div>
-                <h4 class="text-xl mb-2">Custom Branding Solutions</h4>
+                <h4 class="text-xl mb-2">Customization & Branding</h4>
                 <p>
-                  Custom logo printing using eco-safe water-based inks to
-                  strengthen brand identity sustainably.
+                  Tailored product sizes, branding options, and customized
+                  solutions to meet specific business requirements.
                 </p>
               </div>
 
-              <!-- Nationwide Supply -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <!-- Supply -->
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-truck-fast"></i>
                 </div>
-                <h4 class="text-xl mb-2">Nationwide Supply Capability</h4>
+                <h4 class="text-xl mb-2">Pan-India Supply Network</h4>
                 <p>
-                  Reliable bulk manufacturing and logistics ensuring consistent
-                  delivery across India.
+                  Efficient manufacturing and logistics ensuring reliable
+                  delivery for bulk and corporate orders across India.
                 </p>
               </div>
 
               <!-- Compliance -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-certificate"></i>
                 </div>
-                <h4 class="text-xl mb-2">Compliance & Certification Focused</h4>
+                <h4 class="text-xl mb-2">Quality & Compliance Driven</h4>
                 <p>
-                  Registered with MPCB and progressing toward CIPET & CPCB
-                  certifications, ensuring industry compliance.
+                  Products aligned with recognized environmental and
+                  manufacturing standards to ensure reliability and compliance.
                 </p>
               </div>
 
-              <!-- Customer Support -->
-              <div class="rounded-lg shadow-md card industry p-6">
+              <!-- Support -->
+              <div
+                class="rounded-lg shadow-md card industry p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div
                   class="w-12 h-12 bg-green-500 flex justify-center items-center mb-3 rounded-lg text-white text-xl"
                 >
                   <i class="fa-solid fa-headset"></i>
                 </div>
-                <h4 class="text-xl mb-2">End-to-End Customer Support</h4>
+                <h4 class="text-xl mb-2">Dedicated Customer Support</h4>
                 <p>
-                  Dedicated assistance from product selection and sampling to
-                  bulk order fulfillment.
+                  End-to-end assistance from product consultation to delivery,
+                  ensuring a smooth business experience.
                 </p>
               </div>
             </div>
@@ -513,6 +672,8 @@
           <!-- section title  -->
           <div
             class="md:max-w-4xl w-full mx-auto px-6 py-10 text-center flex flex-col items-center"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             <span
               class="text-sm text-white font-medium tracking-wide mb-4 uppercase bg-green-500 w-fit px-2 py-1 rounded-full"
@@ -532,7 +693,11 @@
           <div class="w-full">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <!-- Composting Days -->
-              <div class="rounded-lg shadow-md card p-6 text-center">
+              <div
+                class="rounded-lg shadow-md card p-6 text-center"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <h2 class="text-5xl text-green-700">60–180</h2>
                 <h5 class="mb-2">Days for Complete Composting</h5>
                 <p>
@@ -542,7 +707,11 @@
               </div>
 
               <!-- Toxic Waste -->
-              <div class="rounded-lg shadow-md card p-6 text-center">
+              <div
+                class="rounded-lg shadow-md card p-6 text-center"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <h2 class="text-5xl text-green-700">0</h2>
                 <h5 class="mb-2">Toxic Waste Output</h5>
                 <p>
@@ -552,7 +721,11 @@
               </div>
 
               <!-- Environmental Footprint -->
-              <div class="rounded-lg shadow-md card p-6 text-center">
+              <div
+                class="rounded-lg shadow-md card p-6 text-center"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <h2 class="text-5xl text-green-700">↓60%</h2>
                 <h5 class="mb-2">Lower Environmental Footprint</h5>
                 <p>
@@ -562,7 +735,11 @@
               </div>
 
               <!-- Sustainability Quote -->
-              <div class="p-6 text-center md:col-span-2 lg:col-span-3">
+              <div
+                class="p-6 text-center md:col-span-2 lg:col-span-3"
+                data-aos="zoom-in"
+                data-aos-delay="200"
+              >
                 <h5 class="text-xl text-green-700 font-semibold italic">
                   "Responsible packaging today ensures a greener tomorrow."
                 </h5>
@@ -576,5 +753,12 @@
       <div id="footer-placeholder"></div>
     </main>
     <script src="main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true, // allow animation every slide change
+      });
+    </script>
   </body>
 </html>
