@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script
+      src="https://kit.fontawesome.com/cdf9a174a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navbar  -->
+    <div id="navbar-placeholder"></div>
+    <main class="w-full">
+      <!-- Hero  -->
+      <div class="w-full relative overflow-hidden hero-other">
+        <div class="hero-image"></div>
+        <div class="absolute inset-0 bg-black/75"></div>
+        <div
+          class="hero-content max-w-4xl mx-auto px-6 relative z-10 flex flex-col pt-40 flex items-center text-center space-y-4"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <h1 class="font-bold">Get in Touch</h1>
+          <p>
+            Have questions about our products or need a bulk order? Contact us
+            and we'll get back to you as soon as possible.
+          </p>
+        </div>
+      </div>
+
+      <!-- feature  -->
+
+      <div class="md:max-w-6xl w-full mx-auto px-6 py-10">
+        <div class="w-full">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="border p-6 rounded-lg border-green-500">
+              <form action="">
+                <div class="mb-3">
+                  <label for="">Name</label>
+                  <input type="text" />
+                </div>
+                <div class="mb-3">
+                  <label for="">Email</label>
+                  <input type="text" />
+                </div>
+                <div class="mb-3">
+                  <label for="">Mob No.</label>
+                  <input type="text" />
+                </div>
+                <div class="mb-3">
+                  <label for="">Message</label>
+                  <textarea name="" id=""></textarea>
+                </div>
+                <button>Submit</button>
+              </form>
+            </div>
+            <div class="bg-[#1d2e28] border p-6 contact-wrapper rounded-lg">
+              <div class="flex flex-col space-y-6 h-full">
+                <!-- Address -->
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 mr-2 bg-green-500 flex justify-center items-center rounded-lg text-white"
+                  >
+                    <i class="fa-solid fa-location-dot text-xl"></i>
+                  </div>
+                  <p class="text-white">
+                    Ecoenvi Pvt. Ltd. Pune, Maharashtra – 411001, India
+                  </p>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 mr-2 bg-green-500 flex justify-center items-center rounded-lg text-white"
+                  >
+                    <i class="fa-solid fa-phone text-xl"></i>
+                  </div>
+                  <p>+91 9454841849</p>
+                </div>
+
+                <!-- Email -->
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 mr-2 bg-green-500 flex justify-center items-center rounded-lg text-white"
+                  >
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                  </div>
+                  <p>sales@ecoenvi.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer  -->
+      <div id="footer-placeholder"></div>
+    </main>
+    <script src="main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true, // allow animation every slide change
+      });
+    </script>
+  </body>
+</html>
