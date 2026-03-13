@@ -161,6 +161,9 @@ img {
 }
 
 /* ========== Mobile screens NAVBAR ========= */
+.logo {
+  width: 65px;
+}
 .show-menu {
   transform: translateX(0);
 }
