@@ -80,3 +80,31 @@ faqItems.forEach((item) => {
     item.classList.toggle("faq-active");
   });
 });
+
+//! Toast
+window.showToast = function (message, type = "success") {
+  let toastContainer = document.getElementById("toast-container");
+  if (!toastContainer) return;
+
+  const color = type === "success" ? "text-green-700" : "text-red-700";
+
+  const toast = document.createElement("div");
+  toast.className = "mb-2";
+
+  toast.innerHTML = `
+    <div class="flex justify-between items-center bg-white  p-3 rounded shadow">
+      <div class="mr-2  ${color}">${message}</div>
+      <i class="fa-solid fa-xmark text-md cursor-pointer close-toast text-black"></i>
+    </div>
+  `;
+
+  // add toast to page
+  toastContainer.appendChild(toast);
+
+  //  close button functionality
+  toast.querySelector(".close-toast").addEventListener("click", () => {
+    toast.remove();
+  });
+
+  setTimeout(() => toast.remove(), 4000);
+};
