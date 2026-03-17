@@ -278,12 +278,12 @@ img {
 
 /* ======= OUR RANGE =======  */
 .card {
-  transition: all 0.2s linear;
+  transition: all 0.1s ease-in-out;
   background-color: white;
 }
 
 .card:hover {
-  transform: scale(1.01);
+  transform: scale(1.02) !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .card img {
