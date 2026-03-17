@@ -278,12 +278,15 @@ img {
 
 /* ======= OUR RANGE =======  */
 .card {
-  transition: all 0.1s ease-in-out;
+  /* transition: all 3s ease-in-out; */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   background-color: white;
 }
 
 .card:hover {
-  transform: scale(1.02) !important;
+  transform: scale(1.05) !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .card img {
@@ -354,4 +357,14 @@ img {
 }
 .faq-item.faq-active .faq-content {
   display: block;
+}
+
+/* ========= blog =======  */
+.blog-details-feature-image {
+  height: auto;
+}
+@media screen and (min-width: 992px) {
+  .blog-details-feature-image {
+    max-height: 600px;
+  }
 }
