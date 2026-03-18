@@ -199,7 +199,7 @@ img {
   height: 600px;
 }
 .hero-image {
-  background: url("/images/hero_primary.jpeg");
+  background: url("images/hero_primary.jpeg");
   position: absolute;
   inset: 0;
   background-repeat: no-repeat;
@@ -208,7 +208,7 @@ img {
   width: 100%;
 }
 .hero-image2 {
-  background: url("/images/hero_secondary.jpeg");
+  background: url("images/hero_secondary.jpeg");
   position: absolute;
   inset: 0;
   background-repeat: no-repeat;
