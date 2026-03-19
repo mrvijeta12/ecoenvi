@@ -1,0 +1,14 @@
+# robots.txt for ecoenvi.com
+
+User-agent: *
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /scripts/
+Disallow: /tmp/
+Disallow: /private/
+
+# Allow all other pages
+Allow: /
+
+# Sitemap location
+Sitemap: https://ecoenvi.com/sitemap.xml
