@@ -181,10 +181,9 @@ img {
   margin: 0;
   padding: 0;
 }
-.swiper-button-next:after,
-.swiper-button-prev:after {
-  font-size: 24px !important;
-  color: #22c55e;
+.swiper-button-next,
+.swiper-button-prev {
+  color: #22c55e !important;
 }
 .swiper-button-next {
   padding-left: 15px;
