@@ -234,11 +234,11 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="">Mob No.</label>
+                  <label>Mob No.</label>
                   <input
                     type="tel"
-                    pattern="\+[0-9]{1,3}\s[0-9]{10}"
-                    placeholder="+91 xxxxxxxxxx"
+                    pattern="^\+[1-9]\d{7,14}$"
+                    placeholder="+91xxxxxxxxxx"
                     required
                     name="mobile"
                   />
@@ -250,7 +250,7 @@
                     name="message"
                   ></textarea>
                 </div>
-                <!-- <div class="mb-3">
+                <div class="mb-3">
                   <div
                     class="g-recaptcha mt-2"
                     data-sitekey="6Lc2wR8sAAAAAGG_PgbYhMpCZkEGMS3PgW6KQGFd"
@@ -259,7 +259,7 @@
                     id="captcha-error"
                     style="color: red; font-size: 12px"
                   ></span>
-                </div> -->
+                </div>
                 <button id="submit">Submit</button>
               </form>
             </div>

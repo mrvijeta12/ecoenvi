@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //! add footer
-//! add navbar to all page
 document.addEventListener("DOMContentLoaded", () => {
   const footerPlaceholder = document.getElementById("footer-placeholder");
 
@@ -108,3 +107,121 @@ window.showToast = function (message, type = "success") {
 
   setTimeout(() => toast.remove(), 4000);
 };
+
+//! contact form
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact_form");
+  const submitBtn = document.getElementById("submit");
+  if (!form || !submitBtn) return;
+  const email = form.querySelector('input[name="email"]');
+  function isValid(email) {
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+  }
+  function clearError() {
+    document.getElementById("captcha-error").innerText = "";
+  }
+
+  // set email in localstorage along with time
+  function setEmailCoolDown(email) {
+    email = email.toLowerCase().trim();
+    let coolDownData = {};
+    try {
+      coolDownData = JSON.parse(localStorage.getItem("ecoEmailCoolDown")) || {};
+    } catch (error) {
+      coolDownData = {};
+    }
+    coolDownData[email] = Date.now();
+    localStorage.setItem("ecoEmailCoolDown", JSON.stringify(coolDownData));
+  }
+  // get email in localstorage along with time
+  function isEmailCooldownActive(email) {
+    email = email.toLowerCase().trim();
+
+    let coolDownData = {};
+    try {
+      coolDownData = JSON.parse(localStorage.getItem("ecoEmailCoolDown")) || {};
+    } catch (error) {
+      coolDownData = {};
+    }
+    const lastSubmissionTime = coolDownData[email];
+    if (!lastSubmissionTime) {
+      return false;
+    }
+    const currentTime = Date.now();
+    const coolDownPeriod = 24 * 60 * 60 * 1000; // 1000 is millisecond
+
+    return currentTime - lastSubmissionTime < coolDownPeriod; // return true/false
+  }
+
+  //! submit form
+  async function submitLead() {
+    const formData = new FormData(form);
+    const originalText = submitBtn.innerText;
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
+
+    try {
+      const res = await fetch("api/web-lead-submission.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new Error("Network response failed");
+      }
+      const text = await res.text();
+      // console.log(text);
+      const data = JSON.parse(text);
+
+      if (data.error) {
+        showToast(data.error, "error");
+        submitBtn.disabled = false;
+        return;
+      }
+
+      if (data.success) {
+        let setEmailValue = email.value;
+        setEmailCoolDown(setEmailValue);
+        showToast("Your query has been submitted successfully!", "success");
+        form.reset();
+        grecaptcha.reset();
+      } else {
+        showToast(data.message || "Submission failed", "error");
+      }
+    } catch (error) {
+      console.error(error.message);
+      showToast("Something went wrong. Please try again.", "error");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalText;
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearError();
+    let getEmailValue = email.value;
+    if (!isValid(getEmailValue)) {
+      showToast("Please enter a valid email", "error");
+      return;
+    }
+
+    if (isEmailCooldownActive(getEmailValue)) {
+      showToast(
+        "Your query is already submitted. We will reach out to you within 24 hours.",
+        "error",
+      );
+      form.reset();
+      grecaptcha.reset();
+      return;
+    }
+
+    const captcha = grecaptcha.getResponse();
+    if (!captcha) {
+      document.getElementById("captcha-error").innerText =
+        "Please complete the captcha.";
+      return;
+    }
+    await submitLead();
+  });
+});

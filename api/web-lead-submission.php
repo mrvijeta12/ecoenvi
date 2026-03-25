@@ -2,7 +2,6 @@
 session_start();
 header("Content-Type: application/json; charset=UTF-8");
 
-require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/../phpmailer/PHPMailer.php';
 require_once __DIR__ . '/../phpmailer/SMTP.php';
 require_once __DIR__ . '/../phpmailer/Exception.php';
@@ -11,24 +10,25 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 date_default_timezone_set('Asia/Kolkata');
+
 // 1. Verify Google reCAPTCHA
-// $recaptchaSecret = '6Lc2wR8sAAAAAC1z2-xEHW7B-7pg-o4qBbejOeMv'; // Replace with your Google reCAPTCHA secret key
-// $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
-// if (empty($recaptchaResponse)) {
-//     echo json_encode(["error" => "Please complete the CAPTCHA."]);
-//     exit;
-// }
+$recaptchaSecret = '6Lc2wR8sAAAAAC1z2-xEHW7B-7pg-o4qBbejOeMv'; // Replace with your Google reCAPTCHA secret key
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+if (empty($recaptchaResponse)) {
+    echo json_encode(["error" => "Please complete the CAPTCHA."]);
+    exit;
+}
 
-// // Verify the response with Google
-// $verifyResponse = file_get_contents(
-//     "https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaResponse}"
-// );
-// $responseData = json_decode($verifyResponse);
+// Verify the response with Google
+$verifyResponse = file_get_contents(
+    "https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaResponse}"
+);
+$responseData = json_decode($verifyResponse);
 
-// if (!$responseData->success) {
-//     echo json_encode(["error" => "CAPTCHA verification failed. Please try again."]);
-//     exit;
-// }
+if (!$responseData->success) {
+    echo json_encode(["error" => "CAPTCHA verification failed. Please try again."]);
+    exit;
+}
 
 // 2. Get and sanitize form data
 $name = trim($_POST['name'] ?? "");
@@ -36,6 +36,7 @@ $email = trim($_POST['email'] ?? "");
 $mobile = trim($_POST['mobile'] ?? "");
 $message = trim($_POST['message'] ?? "");
 $created_at = date("Y-m-d H:i:s");
+
 // 3. Validate email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(["error" => "Invalid email format"]);
@@ -47,28 +48,8 @@ if (!checkdnsrr($domain, "MX")) {
     echo json_encode(["error" => "Invalid email domain"]);
     exit;
 }
-// 4. Insert into MySQL
-$stmt = $conn->prepare(
-    "INSERT INTO ecoenvi_leads 
-    (name,email,mobile,message,created_at)
-     VALUES (?, ?, ?, ?, ?)"
-);
 
-if (!$stmt) {
-    echo json_encode(["error" => "Prepare failed: " . $conn->error]);
-    exit;
-}
-
-$stmt->bind_param(
-    "sssss",
-    $name, $email, $mobile, $message, $created_at
-);
-
-if (!$stmt->execute()) {
-    echo json_encode(["error" => "Database insertion failed: " . $stmt->error]);
-    exit;
-}
-// 5. Send confirmation emails
+// 4. Send confirmation emails
 try {
     $mail = new PHPMailer(true);
     $mail->isSMTP();
@@ -115,6 +96,5 @@ try {
     echo json_encode(["error" => "Email could not be sent: " . $mail->ErrorInfo]);
 }
 
-$stmt->close();
-$conn->close();
+
 ?>
